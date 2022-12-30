@@ -199,17 +199,17 @@ td {
 
 After building your components, you'll have a library of reusable components that render your data model. Because this is a static app, the components will only return JSX. The component at the top of the hierarchy (`FilterableProductTable`) will take your data model as a prop. This is called _one-way data flow_ because the data flows down from the top-level component to the ones at the bottom of the tree.
 
-<Gotcha>
+<Pitfall>
 
 At this point, you should not be using any state values. That’s for the next step!
 
-</Gotcha>
+</Pitfall>
 
 ## Step 3: Find the minimal but complete representation of UI state {/*step-3-find-the-minimal-but-complete-representation-of-ui-state*/}
 
 To make the UI interactive, you need to let users change your underlying data model. You will use *state* for this.
 
-Think of state as the minimal set of changing data that your app needs to remember. The most important principle for structuring state is to keep it [DRY (Don't Repeat Yourself](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)). Figure out the absolute minimal representation of the state your application needs and compute everything else on-demand. For example, if you're building a shopping list, you can store the items as an array in state. If you want to also display the number of items in the list, don't store the number of items as another state value--instead, read the length of your array.
+Think of state as the minimal set of changing data that your app needs to remember. The most important principle for structuring state is to keep it [DRY (Don't Repeat Yourself).](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) Figure out the absolute minimal representation of the state your application needs and compute everything else on-demand. For example, if you're building a shopping list, you can store the items as an array in state. If you want to also display the number of items in the list, don't store the number of items as another state value--instead, read the length of your array.
 
 Now think of all of the pieces of data in this example application:
 
@@ -235,7 +235,9 @@ Let's go through them one by one again:
 
 This means only the search text and the value of the checkbox are state! Nicely done!
 
-<DeepDive title="Props vs State">
+<DeepDive>
+
+#### Props vs State {/*props-vs-state*/}
 
 There are two types of "model" data in React: props and state. The two are very different:
 
@@ -271,7 +273,7 @@ Now let's run through our strategy for this state:
 
 So the state values will live in `FilterableProductTable`. 
 
-Add state to the component with the [`useState()` Hook.](/apis/react/useState) Hooks let you "hook into" a component's [render cycle.](/learn/render-and-commit) Add two state variables at the top of `FilterableProductTable` and specify the initial state of your application:
+Add state to the component with the [`useState()` Hook.](/reference/react/useState) Hooks let you "hook into" a component's [render cycle.](/learn/render-and-commit) Add two state variables at the top of `FilterableProductTable` and specify the initial state of your application:
 
 ```js
 function FilterableProductTable({ products }) {
