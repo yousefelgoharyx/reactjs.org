@@ -15,7 +15,3 @@ execSync(
 execSync(
   'curl https://conf.reactjs.org/fonts/Optimistic_Display_W_Bd.woff2 --output public/fonts/Optimistic_Display_W_Bd.woff2'
 );
-// Download optimistic display font of weight 400 from Facebook CDN
-execSync(
-  'curl https://z-p3-static.xx.fbcdn.net/rsrc.php/y2/r/6YirsaXqsap.woff2 --output public/fonts/Optimistic_Display_W_Rr.woff2'
-);
